@@ -147,7 +147,9 @@ const scripts = () => {
 const watchFiles = () => {
   browserSync.init({
     server: {
-      baseDir: "./app"
+      baseDir: "./app",
+      port: 3000,
+      notify: false
     },
   });
 
@@ -165,7 +167,7 @@ const watchFiles = () => {
 }
 
 const clean = () => {
-	return del(['app/*'])
+  return del(['app/*'])
 }
 
 exports.fileinclude = htmlInclude;
@@ -209,28 +211,28 @@ const scriptsBuild = () => {
   return src('./src/js/main.js')
     .pipe(webpackStream(
 
-        {
-          mode: 'development',
-          output: {
-            filename: 'main.js',
-          },
-          module: {
-            rules: [{
-              test: /\.m?js$/,
-              exclude: /(node_modules|bower_components)/,
-              use: {
-                loader: 'babel-loader',
-                options: {
-                  presets: ['@babel/preset-env']
-                }
+      {
+        mode: 'development',
+        output: {
+          filename: 'main.js',
+        },
+        module: {
+          rules: [{
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
               }
-            }]
-          },
-        }))
-      .on('error', function (err) {
-        console.error('WEBPACK ERROR', err);
-        this.emit('end'); // Don't stop the rest of the task
-      })
+            }
+          }]
+        },
+      }))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end'); // Don't stop the rest of the task
+    })
     .pipe(uglify().on("error", notify.onError()))
     .pipe(dest('./app/js'))
 }
@@ -255,9 +257,9 @@ const deploy = () => {
   ];
 
   return src(globs, {
-      base: './app',
-      buffer: false
-    })
+    base: './app',
+    buffer: false
+  })
     .pipe(conn.newer('')) // only upload newer files
     .pipe(conn.dest(''));
 }

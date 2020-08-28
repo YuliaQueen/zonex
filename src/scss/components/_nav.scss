@@ -1,0 +1,21 @@
+.nav {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 45px;
+    }
+  }
+
+  &__link {
+    &--current {
+      &::before {
+        width: 100%;
+        transition: width .3s;
+      }
+    }
+  }
+}

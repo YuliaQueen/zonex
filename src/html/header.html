@@ -1,3 +1,33 @@
 <header class="header">
-  <div class="container"></div>
+  <div class="container header__container">
+    <nav class="nav header__nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link main-link" href="#">Home</a></li>
+        <li class="nav__item"><a class="nav__link main-link" href="#">Shop</a></li>
+        <li class="nav__item"><a class="nav__link main-link nav__link--current">Elements</a></li>
+        <li class="nav__item"><a class="nav__link main-link" href="#">Blog</a></li>
+        <li class="nav__item"><a class="nav__link main-link" href="#">Page</a></li>
+      </ul>
+    </nav>
+    <a class="logo header__logo" href="#" aria-label="logo">
+      <svg>
+        <use xlink:href="./img/sprite.svg#logo_zonex"></use>
+      </svg>
+    </a>
+    <ul class="shop-nav header__shop-nav">
+      <li class="shop-nav__item">
+        <form action="/" class="shop-nav__search-form search-form">
+          <button class="search-form__btn btn-reset" aria-label="find"></button>
+        </form>
+      </li>
+      <li class="shop-nav__item">
+        <a class="shop-nav__link shop-nav__link--user" href="#" aria-label="Go to cabinet"></a>
+      </li>
+      <li class="shop-nav__item">
+        <a class="shop-nav__link cart" href="#" aria-label="Go to cart">
+          <span class="cart__icon"></span>
+          <span class="cart__quantity">3</span>
+        </a></li>
+    </ul>
+  </div>
 </header>

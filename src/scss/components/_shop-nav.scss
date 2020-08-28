@@ -1,0 +1,64 @@
+.shop-nav {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--user {
+      background-image: url("../../img/user.png");
+    }
+  }
+
+  .cart {
+    width: auto;
+    height: auto;
+
+    &__icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../../img/basket.png");
+    }
+
+    &__quantity {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      width: 16px;
+      height: 16px;
+      color: var(--color-white);
+      font-weight: 700;
+      padding: 0 5px;
+      background-color: var(--color-dark);
+      border-radius: 25px;
+    }
+  }
+
+  .search-form {
+
+    &__btn  {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../../img/loup.png");
+    }
+  }
+}

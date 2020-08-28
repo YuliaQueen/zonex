@@ -10,7 +10,9 @@ html {
 
 body {
   margin: 0;
-  font-family: "asd", sans-serif;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+  color: var(--color-dark);
   background-color: var(--color-white);
 }
 
@@ -18,13 +20,48 @@ img {
   max-width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ul {
   list-style: none;
+  margin: 0;
   padding: 0;
+}
+
+.main-link {
+  position: relative;
+  font-size: 15px;
+  color: var(--color-dark);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: currentColor;
+    transition: width .3s;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      transition: width .3s;
+    }
+  }
+
+  &--white {
+    color: var(--color-white);
+  }
 }
 
 .is-outer {
@@ -60,7 +97,8 @@ ul {
   @include visually-hidden;
 }
 
-.btn--reset {
+.btn-reset {
+  padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -68,8 +106,8 @@ ul {
 
 .container {
   margin: 0 auto;
-  padding: 0 15px;
-  max-width: 1200px;
+  padding: 0 48px;
+  //max-width: 1200px;
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
