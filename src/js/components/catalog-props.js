@@ -1,9 +1,11 @@
-let catalogColumns = document.querySelector('.catalog-columns__list');
-let catalogGridContent = document.querySelector('.catalog-grid__content');
-let columnsBtn = document.querySelectorAll('.catalog-columns__btn');
-let catalogFilterItems = document.querySelectorAll('.catalog-filter__item');
-let catalogChoice = document.querySelector('.catalog-choice');
-let catalogFilters = document.querySelectorAll('.catalog-filter');
+let catalogColumns = document.querySelector('.catalog-columns__list'),
+  catalogGridContent = document.querySelector('.catalog-grid__content'),
+  columnsBtn = document.querySelectorAll('.catalog-columns__btn'),
+  catalogFilterItems = document.querySelectorAll('.catalog-filter__item'),
+  catalogChoice = document.querySelector('.catalog-choice'),
+  catalogFilters = document.querySelectorAll('.catalog-filter'),
+  allQuantityes = document.querySelectorAll('.catalog-filter__quantity');
+
 
 //счетчик активных чекбоксов в каждой категории фильтра товаров
 catalogFilters.forEach(el => {
@@ -14,7 +16,7 @@ catalogFilters.forEach(el => {
 
     quantityCheckboxes.innerText = countCheckboxesActive;
   })
-})
+});
 
 
 //переключение сетки товаров по 3,4,5 в ряд
@@ -33,7 +35,7 @@ columnsBtn.forEach(el => {
   })
 });
 
-//добавление кнопки в блок catalog-choice
+//добавление HTML кнопки в блок catalog-choice
 const createChoiceItem = (text) => {
   return (
     `
@@ -79,23 +81,33 @@ catalogChoice.addEventListener('click', (e) => {
 
     let text = e.target.textContent.trimLeft().trimRight();
 
-    //снимаем галочку с item в фильтрах
+    //снимаем галочку с item в фильтрах и уменьшаем счетчик активных чекбоксов
     catalogFilterItems.forEach(el => {
       if (el.querySelector('.custom-checkbox__text').textContent.trimLeft().trimRight() === text) {
+        //удаляем галочку с чекбокса
         el.querySelector('label').classList.remove('custom-checkbox--active');
+        //делаем unchecked
         el.querySelector('input').checked = false;
+        //уменьшаем счетчик активных чекбоксов в фильтре
+        el.closest('.catalog-filter').querySelector('.catalog-filter__quantity').textContent--;
       }
     })
   }
 
   //очищаем все по кнопке Clear
   if (e.target.classList.contains('catalog-choice__clear')) {
+    //удаляем все элементы, которые не являются кнопкой Clear
     Array.from(e.currentTarget.children).forEach(el => {
       if (!el.classList.contains('catalog-choice__clear')) {
         el.remove()
       }
     })
 
+    //обнуляем все счетчики активных чекбоксов
+    allQuantityes.forEach(quantity => {
+      quantity.textContent = 0;
+    })
+    //удаляем галочки со всех чекбоксов
     catalogFilterItems.forEach(el => {
       el.querySelector('input').checked = false;
       el.querySelector('.custom-checkbox').classList.remove('custom-checkbox--active');
