@@ -57,7 +57,7 @@ catalogFilterItems.forEach(el => {
       (catalogChoice.classList.add('fade')) :
       (catalogChoice.classList.remove('fade'));
   })
-})
+});
 
 //удаление тэгов выбора по одному и по кнопке Clear All
 catalogChoice.addEventListener('click', (e) => {
@@ -93,5 +93,20 @@ catalogChoice.addEventListener('click', (e) => {
   if (e.currentTarget.children.length === 1) {
     e.currentTarget.classList.remove('fade');
   }
+});
+
+//предотвращение дублирования catalog-choice__item при повторном активировании одного и того же чекбокса
+catalogFilterItems.forEach(el => {
+  el.addEventListener('change', () => {
+    if (el.querySelector('input').checked === false) {
+      let text = el.querySelector('.custom-checkbox__text').textContent.trimLeft().trimRight();
+
+      catalogChoice.querySelectorAll('button').forEach(el => {
+        if(el.textContent.trimRight().trimLeft() === text) {
+          el.remove();
+        }
+      })
+    }
+  })
 })
 
