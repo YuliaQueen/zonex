@@ -1,0 +1,136 @@
+.catalog-grid {
+  width: 100%;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 58px;
+    column-gap: 19px;
+  }
+}
+
+//DATA-GRID-COLUMNS
+
+[data-grid-columns="3"] {
+  .catalog-grid__item {
+    max-width: 32%;
+  }
+}
+
+[data-grid-columns="4"] {
+  .catalog-grid__item {
+    max-width: 23.5%;
+  }
+}
+
+[data-grid-columns="5"] {
+  .catalog-grid__item {
+    max-width: 18%;
+  }
+}
+
+//DATA-GRID-COLUMNS
+
+.catalog-props__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
+}
+
+.catalog-columns {
+  display: flex;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 0 6px 6px;
+
+    & + & {
+      margin-left: 2px;
+    }
+  }
+
+  &__text {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    color: var(--color-gray);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 2px;
+
+    &--current {
+      color: var(--color-dark);
+      border-bottom: 2px solid var(--color-dark);
+    }
+  }
+}
+
+.catalog-choice {
+  margin-bottom: 13px;
+  opacity: 0;
+  transition: opacity .5s;
+
+  &__item {
+    position: relative;
+    color: var(--color-tundora);
+    font-size: 13px;
+    border-radius: 12px;
+    background-color: #eeeeee;
+    padding: 6px 28px 6px 14px;
+    margin-bottom: 5px;
+    transition: all .3s;
+
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--color-dark);
+    }
+
+    & + & {
+      margin-right: 5px;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 9px;
+      fill: currentColor;
+      pointer-events: none;
+    }
+  }
+
+  &__clear {
+    position: relative;
+    font-size: 13px;
+    margin-left: 10px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      background-color: currentColor;
+      transition: width .3s;
+      opacity: 1;
+    }
+  }
+}
+
+.catalog-choice.fade {
+  opacity: 1;
+  transition: opacity .5s;
+}

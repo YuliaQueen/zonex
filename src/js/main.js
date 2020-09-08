@@ -1,6 +1,8 @@
 import './vendor/focus-visible.min.js';
 import './vendor/swiper';
-import './components/marketing'
+import './components/marketing';
+import './components/filter-toggle';
+import './components/catalog-props';
 import './_vars';
 
 import {resizeContent} from './functions/resize';

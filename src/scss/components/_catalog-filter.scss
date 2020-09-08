@@ -1,0 +1,156 @@
+.catalog-filters {
+  min-width: 309px;
+}
+
+.hide-filters {
+  font-family: Jost, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 25px;
+  margin-bottom: 19px;
+  background-image: url("../../img/close.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.catalog-filter {
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+
+  &--open {
+    .catalog-filter__bottom {
+      display: block;
+    }
+
+    .catalog-filter__toggle {
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    cursor: pointer;
+    user-select: none;
+
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__quantity {
+    min-width: 16px;
+    margin-left: 2px;
+    transform: translateY(-2px);
+  }
+
+  &__toggle {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #aaa;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #aaaaaa;
+    }
+  }
+
+  &__items {
+    columns: 2;
+    padding-right: 57px;
+  }
+
+  &__item {
+
+    & + & {
+      margin-top: 14px;
+    }
+  }
+
+  &__bottom {
+    display: none;
+    padding-bottom: 25px;
+    cursor: pointer;
+  }
+}
+
+.custom-checkbox {
+  display: inline-block;
+
+  &__text {
+    position: relative;
+    color: var(--color-gray);
+    font-size: 13px;
+    font-weight: 500;
+    padding-left: 16px;
+    user-select: none;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2px solid #aaaaaa;
+      top: 3px;
+      left: 0;
+    }
+
+    &:after {
+      display: none;
+      content: "\2713";
+      position: absolute;
+      top: 0;
+      left: 2px;
+      font-weight: 700;
+    }
+  }
+
+  &__input {
+
+    &:checked + span {
+      color: var(--color-dark);
+
+      &:before {
+        border-color: var(--color-dark);
+      }
+
+      &:after {
+        display: inline-block;
+        color: var(--color-dark);
+      }
+    }
+  }
+
+}
+
+
+

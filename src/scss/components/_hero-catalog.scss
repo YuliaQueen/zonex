@@ -1,0 +1,64 @@
+.hero-catalog {
+  padding-top: 130px;
+
+  &__slider {
+    width: 100%;
+    max-height: 460px;
+    overflow: hidden;
+    background-color: #f8f8f8;;
+  }
+}
+
+.catalog-slide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 110px;
+
+  &__content {
+    width: 68%;
+  }
+
+  &__title {
+    max-width: 375px;
+    margin-bottom: 17px;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  &__descr {
+    max-width: 390px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 500;
+    color: var(--color-tundora);
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 13px;
+    padding: 16px 43px;
+    border: 1px solid currentColor;
+
+    & + & {
+      margin-left: 15px;
+    }
+
+    &--dark {
+      color: var(--color-white);
+      background-color: var(--color-dark);
+    }
+
+    &--light {
+      background-color: transparent;
+      padding: 15px 43px;
+    }
+  }
+}
