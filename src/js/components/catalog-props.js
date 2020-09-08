@@ -3,6 +3,19 @@ let catalogGridContent = document.querySelector('.catalog-grid__content');
 let columnsBtn = document.querySelectorAll('.catalog-columns__btn');
 let catalogFilterItems = document.querySelectorAll('.catalog-filter__item');
 let catalogChoice = document.querySelector('.catalog-choice');
+let catalogFilters = document.querySelectorAll('.catalog-filter');
+
+
+catalogFilters.forEach(el => {
+  el.addEventListener('change', (e) => {
+    let countCheckboxesActive = e.currentTarget.querySelectorAll('.custom-checkbox--active').length;
+
+    let quantityCheckboxes = e.currentTarget.querySelector('.catalog-filter__quantity');
+
+    quantityCheckboxes.innerText = countCheckboxesActive;
+  })
+})
+
 
 //переключение сетки товаров по 3,4,5 в ряд
 columnsBtn.forEach(el => {
@@ -102,7 +115,7 @@ catalogFilterItems.forEach(el => {
       let text = el.querySelector('.custom-checkbox__text').textContent.trimLeft().trimRight();
 
       catalogChoice.querySelectorAll('button').forEach(el => {
-        if(el.textContent.trimRight().trimLeft() === text) {
+        if (el.textContent.trimRight().trimLeft() === text) {
           el.remove();
         }
       })
