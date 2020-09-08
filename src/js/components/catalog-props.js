@@ -5,7 +5,7 @@ let catalogFilterItems = document.querySelectorAll('.catalog-filter__item');
 let catalogChoice = document.querySelector('.catalog-choice');
 let catalogFilters = document.querySelectorAll('.catalog-filter');
 
-
+//счетчик активных чекбоксов в каждой категории фильтра товаров
 catalogFilters.forEach(el => {
   el.addEventListener('change', (e) => {
     let countCheckboxesActive = e.currentTarget.querySelectorAll('.custom-checkbox--active').length;
