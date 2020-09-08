@@ -1,7 +1,9 @@
 # ZONEX
 Интернет-магазин одежды и аксессуаров
 
-preview - https://www.loom.com/share/ca9e0f99d769471f86a1b45d44defb18
+## PREVIEW
+
+https://www.loom.com/share/ca9e0f99d769471f86a1b45d44defb18
   
 Находится в стадии разработки, без мобильной адаптации
 
