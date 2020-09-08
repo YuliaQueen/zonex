@@ -108,5 +108,5 @@ catalogFilterItems.forEach(el => {
       })
     }
   })
-})
+});
 
