@@ -30,12 +30,12 @@
   }
 }
 
-//DATA-GRID-COLUMNS
+// xx DATA-GRID-COLUMNS
 
 .catalog-props__top {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 19px;
+  margin-bottom: 26px;
 }
 
 .catalog-columns {
@@ -133,4 +133,112 @@
 .catalog-choice.fade {
   opacity: 1;
   transition: opacity .5s;
+}
+
+.custom-select {
+  position: relative;
+  min-width: 115px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+
+  &__top {
+    position: relative;
+    padding-bottom: 12px;
+    padding-right: 20px;
+    border-bottom: 1px solid #e5e5e7;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 6px;
+      top: 50%;
+      right: 0;
+      margin-top: -6px;
+      background-image: url("../../img/angle_down.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 2px);
+    width: 100%;
+    padding: 5px 5px;
+    z-index: 20;
+    background-color: var(--color-white);
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &--open {
+    .custom-select__top {
+      &:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .custom-select__dropdown {
+      display: block;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+
+  &__item {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-gray);
+    text-transform: uppercase;
+
+    & + & {
+      margin-left: 8px;
+    }
+  }
+
+  &__link {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    border: 2px solid #eee;
+    transition: all .3s;
+
+    svg {
+      width: 7px;
+      height: 16px;
+      fill: currentColor;
+      padding-left: 2px;
+    }
+
+    &:hover {
+      background-color: var(--color-dark);
+      color: var(--color-white);
+      transition: all .3s;
+    }
+
+    &--current {
+      background-color: var(--color-dark);
+      color: var(--color-white);
+    }
+  }
 }

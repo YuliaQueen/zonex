@@ -4,7 +4,8 @@ let catalogColumns = document.querySelector('.catalog-columns__list'),
   catalogFilterItems = document.querySelectorAll('.catalog-filter__item'),
   catalogChoice = document.querySelector('.catalog-choice'),
   catalogFilters = document.querySelectorAll('.catalog-filter'),
-  allQuantityes = document.querySelectorAll('.catalog-filter__quantity');
+  allQuantityes = document.querySelectorAll('.catalog-filter__quantity'),
+  customSelect = document.querySelectorAll('.custom-select');
 
 
 //счетчик активных чекбоксов в каждой категории фильтра товаров
@@ -134,4 +135,16 @@ catalogFilterItems.forEach(el => {
     }
   })
 });
+
+//customSelect
+customSelect.forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.currentTarget.classList.toggle('custom-select--open')
+
+    if (e.target.className === 'custom-select__item') {
+      let text = e.target.textContent;
+      e.currentTarget.querySelector('.custom-select__top').textContent = text;
+    }
+  })
+})
 

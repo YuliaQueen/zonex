@@ -17,9 +17,12 @@ const swiper = new Swiper('.swiper-container', {
 })
 
 //slider for catalog-page
-
 const swiperCatalog = new Swiper('.swiper-container__catalog', {
   // Optional parameters
   loop: true,
   slidesPerView: 1,
+  navigation: {
+    nextEl: '.hero-next-btn',
+    prevEl: '.hero-prev-btn'
+  }
 })
